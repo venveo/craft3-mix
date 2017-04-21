@@ -53,7 +53,8 @@ class ElixirService extends Component
         $settings = Elixir::$plugin->getSettings();
         $this->buildPath = $settings->buildPath;
         $this->publicPath = $settings->publicPath;
-        $this->manifest = dirname(CRAFT_BASE_PATH) . '/' . $this->publicPath . '/' . $this->buildPath . '/rev-manifest.json';
+        $basePath = \Yii::getAlias('@webroot');
+        $this->manifest = $basePath . '/' . $this->buildPath . '/rev-manifest.json';
     }
 
 
@@ -79,7 +80,12 @@ class ElixirService extends Component
             return $this->buildPath . '/' . $file;
         }
 
-        return '/' . $this->buildPath . '/' . $manifest[$file];
+        // If asset isn't in the manifest, return file name
+        if (array_key_exists($file, $manifest)) {
+            return '/' . $this->buildPath . '/' . $manifest[$file];
+        }
+
+        return '/' . $this->buildPath . '/' . $file;
     }
 
     /**
