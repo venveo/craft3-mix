@@ -153,28 +153,3 @@ class Elixir extends Plugin
         );
     }
 }
-//
-//
-//
-//    /**
-//     * Get the settings template.
-//     *
-//     * @return string
-//     */
-//    public function getSettingsHtml()
-//    {
-//        return craft()->templates->render('elixir/settings', [
-//            'settings' => $this->getSettings()
-//        ]);
-//    }
-//
-//    /**
-//    * Register Twig extension for use.
-//    */
-//    public function addTwigExtension()
-//    {
-//        Craft::import('plugins.elixir.twigextensions.ElixirTwigExtension');
-//
-//        return new ElixirTwigExtension();
-//    }
-

@@ -22,7 +22,7 @@
     id:           'publicPath',
     name:         'publicPath',
     instructions: "this is the path to the 'public' directory, only rename this if you have your main index.php in a unique directory."|t,
-    value:        settings['publicPath'],
+    value:        settings.publicPath,
     autofocus:    true,
     default:      'public',
     errors:       settings.getErrors('publicPath'),
@@ -35,7 +35,7 @@
     id:           'buildPath',
     name:         'buildPath',
     instructions: "By default, Laravel compiles versioned assets to 'build'. Modify this only if you changed the elixir configuration",
-    value:        settings['buildPath'],
+    value:        settings.buildPath,
     errors:       settings.getErrors('buildPath'),
     required:     true
 }) }}

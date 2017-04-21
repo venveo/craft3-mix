@@ -71,12 +71,12 @@ class ElixirService extends Component
         } catch (\Exception $e) {
             Craft::log(printf($e->getMessage()), LogLevel::Info, true);
 
-            return $file;
+            return $this->buildPath . '/' . $file;
         }
 
         // if no manifest, return the regular asset
         if (!$manifest) {
-            return $file;
+            return $this->buildPath . '/' . $file;
         }
 
         return '/' . $this->buildPath . '/' . $manifest[$file];
