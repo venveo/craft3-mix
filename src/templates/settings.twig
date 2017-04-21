@@ -1,12 +1,28 @@
 {% import "_includes/forms" as forms %}
 
+{#
+/**
+ * Elixir plugin for Craft CMS 3.x
+ *
+ * Elixir Settings.twig
+ *
+ * @author    Venveo
+ * @copyright Copyright (c) 2017 Venveo
+ * @link      https://venveo.com
+ * @package   Elixir
+ * @since     2.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
 {{ forms.textField({
     first:        true,
     label:        "Path to Public Directory",
     id:           'publicPath',
     name:         'publicPath',
     instructions: "this is the path to the 'public' directory, only rename this if you have your main index.php in a unique directory."|t,
-    value:        settings.publicPath,
+    value:        settings['publicPath'],
     autofocus:    true,
     default:      'public',
     errors:       settings.getErrors('publicPath'),
@@ -19,7 +35,7 @@
     id:           'buildPath',
     name:         'buildPath',
     instructions: "By default, Laravel compiles versioned assets to 'build'. Modify this only if you changed the elixir configuration",
-    value:        settings.buildPath,
+    value:        settings['buildPath'],
     errors:       settings.getErrors('buildPath'),
     required:     true
 }) }}

@@ -1,8 +1,34 @@
 <?php
+/**
+ * Elixir plugin for Craft CMS 3.x
+ *
+ * Helper plugin for Laravel Elixir in Craft templates
+ *
+ * @link      https://venveo.com
+ * @copyright Copyright (c) 2017 Venveo
+ */
 
-namespace Craft;
+namespace venveo\elixir\services;
 
-class ElixirService extends BaseApplicationComponent
+use venveo\elixir\Elixir;
+
+use Craft;
+use craft\base\Component;
+
+/**
+ * ElixirService Service
+ *
+ * All of your plugin’s business logic should go in services, including saving data,
+ * retrieving data, etc. They provide APIs that your controllers, template variables,
+ * and other plugins can interact with.
+ *
+ * https://craftcms.com/docs/plugins/services
+ *
+ * @author    Venveo
+ * @package   Elixir
+ * @since     2.0.0
+ */
+class ElixirService extends Component
 {
     /**
      * @var string
@@ -13,27 +39,29 @@ class ElixirService extends BaseApplicationComponent
      * @var string
      */
     protected $publicPath;
-    
-    /**
-    * @var string
-    */
-    protected $manifest;
 
     /**
-     * ElixirService constructor.
+     * @var string
      */
+    protected $manifest;
+
+    // Public Methods
+    // =========================================================================
+
     public function __construct()
     {
-        $settings = craft()->plugins->getPlugin('elixir')->getSettings();
+        $settings = Elixir::$plugin->getSettings();
         $this->buildPath = $settings->buildPath;
         $this->publicPath = $settings->publicPath;
-        $this->manifest = dirname(CRAFT_BASE_PATH) . '/' .  $this->publicPath . '/' . $this->buildPath . '/rev-manifest.json';
+        $this->manifest = dirname(CRAFT_BASE_PATH) . '/' . $this->publicPath . '/' . $this->buildPath . '/rev-manifest.json';
     }
+
 
     /**
      * Find the files version.
      *
      * @param $file
+     *
      * @return mixed
      */
     public function version($file)
@@ -42,6 +70,7 @@ class ElixirService extends BaseApplicationComponent
             $manifest = $this->readManifestFile();
         } catch (\Exception $e) {
             Craft::log(printf($e->getMessage()), LogLevel::Info, true);
+
             return $file;
         }
 
@@ -57,6 +86,7 @@ class ElixirService extends BaseApplicationComponent
      * Returns the assets version with the appropriate tag.
      *
      * @param $file
+     *
      * @return string
      */
     public function withTag($file)
@@ -66,7 +96,15 @@ class ElixirService extends BaseApplicationComponent
         try {
             $manifest = $this->readManifestFile();
         } catch (\Exception $e) {
-            Craft::log(printf($e->getMessage()), LogLevel::Info, true);
+            Craft::info(
+                Craft::t(
+                    'elixir',
+                    $e->getMessage(),
+                    ['name' => $this->name]
+                ),
+                __METHOD__
+            );
+
             return $file;
         }
 
@@ -99,6 +137,8 @@ class ElixirService extends BaseApplicationComponent
                 true
             );
         }
+
         return false;
     }
 }
+

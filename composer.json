@@ -1,15 +1,54 @@
 {
     "name": "venveo/craft-elixir",
-    "description": "Use Laravel's Elixir in Craft CMS templates",
+    "description": "Helper plugin for Laravel Elixir in Craft templates",
+    "type": "craft-plugin",
+    "version": "2.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "elixir"
+    ],
+    "support": {
+        "docs": "https://github.com/venveo/elixir/blob/master/README.md",
+        "issues": "https://github.com/venveo/elixir/issues"
+    },
+    "license": "MIT",
     "authors": [
         {
             "name": "Jason McCallister",
             "email": "jason@venveo.com"
-            }
-        ],
-    "type": "craft-plugin",
+        },
+        {
+            "name": "Ransom Roberson",
+            "email": "ransom@venveo.com"
+        }
+    ],
     "require": {
-        "composer/installers": "~1.0"
+        "craftcms/cms": "~3.0.0-beta.1"
     },
-    "minimum-stability": "dev"
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "venveo\\elixir\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Elixir",
+        "handle": "elixir",
+        "schemaVersion": "2.0.0",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/venveo/craft-elixir/master/CHANGELOG.md",
+        "components": {
+            "elixirService": "venveo\\elixir\\services\\ElixirService"
+        },
+        "class": "venveo\\elixir\\Elixir"
+    }
 }
