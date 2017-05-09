@@ -2,7 +2,7 @@
     "name": "venveo/craft3-mix",
     "description": "Helper plugin for rev-manifest in Craft templates",
     "type": "craft-plugin",
-    "version": "3.0.0",
+    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -42,7 +42,7 @@
     "extra": {
         "name": "Mix",
         "handle": "mix",
-        "schemaVersion": "2.0.0",
+        "schemaVersion": "1.0.0",
         "hasCpSettings": true,
         "hasCpSection": false,
         "changelogUrl": "https://raw.githubusercontent.com/venveo/craft3-mix/master/CHANGELOG.md",
