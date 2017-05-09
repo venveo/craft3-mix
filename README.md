@@ -1,4 +1,4 @@
-# Use Laravel Elixir (or any rev-manifest) with Craft CMS
+# Use Laravel Mix (or any rev-manifest) with Craft CMS
 
 You can already use Laravel Mix (Formerly Elixir) with Craft. It's rather straight forward. In fact, Matt Stauffer has an [excellent write up on using Elixir on his company blog](http://blog.tighten.co/setting-up-your-first-vuejs-site-using-laravel-elixir-and-vueify?utm_source=github.com/venveo/craft-elixir).
 
