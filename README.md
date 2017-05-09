@@ -9,6 +9,9 @@ That's okay! The rev-manifest format is standard and this plugin is build-proces
 ## Requirements
 - Craft 3 (Tested on Beta 10)
 - Composer
+
+Looking for a Craft 2 solution? Check out our [Laravel Elixir package for Craft 2](https://github.com/venveo/craft-elixir)
+
 ## Installation and Setup
 Please follow the installation guide for Craft 3 plugins [here](https://github.com/craftcms/docs/blob/master/en/plugin-intro.md#loading-your-plugin-into-craft)
 ## Usage
