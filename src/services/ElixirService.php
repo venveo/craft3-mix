@@ -1,22 +1,22 @@
 <?php
 /**
- * Elixir plugin for Craft CMS 3.x
+ * Mix plugin for Craft CMS 3.x
  *
- * Helper plugin for Laravel Elixir in Craft templates
+ * Helper plugin for Laravel Mix in Craft templates
  *
  * @link      https://venveo.com
  * @copyright Copyright (c) 2017 Venveo
  */
 
-namespace venveo\elixir\services;
+namespace venveo\mix\services;
 
-use venveo\elixir\Elixir;
+use venveo\mix\Mix;
 
 use Craft;
 use craft\base\Component;
 
 /**
- * ElixirService Service
+ * MixService Service
  *
  * All of your plugin’s business logic should go in services, including saving data,
  * retrieving data, etc. They provide APIs that your controllers, template variables,
@@ -25,10 +25,10 @@ use craft\base\Component;
  * https://craftcms.com/docs/plugins/services
  *
  * @author    Venveo
- * @package   Elixir
+ * @package   Mix
  * @since     2.0.0
  */
-class ElixirService extends Component
+class MixService extends Component
 {
     /**
      * @var string
@@ -50,7 +50,7 @@ class ElixirService extends Component
 
     public function __construct()
     {
-        $settings = Elixir::$plugin->getSettings();
+        $settings = Mix::$plugin->getSettings();
         $this->buildPath = $settings->buildPath;
         $this->publicPath = $settings->publicPath;
         $basePath = \Yii::getAlias('@webroot');
@@ -104,7 +104,7 @@ class ElixirService extends Component
         } catch (\Exception $e) {
             Craft::info(
                 Craft::t(
-                    'elixir',
+                    'mix',
                     $e->getMessage(),
                     ['name' => $this->name]
                 ),

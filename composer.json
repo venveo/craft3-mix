@@ -1,18 +1,18 @@
 {
-    "name": "venveo/craft-elixir",
-    "description": "Helper plugin for Laravel Elixir in Craft templates",
+    "name": "venveo/craft3-mix",
+    "description": "Helper plugin for rev-manifest in Craft templates",
     "type": "craft-plugin",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "keywords": [
         "craft",
         "cms",
         "craftcms",
         "craft-plugin",
-        "elixir"
+        "mix"
     ],
     "support": {
-        "docs": "https://github.com/venveo/elixir/blob/master/README.md",
-        "issues": "https://github.com/venveo/elixir/issues"
+        "docs": "https://github.com/venveo/craft3-mix/blob/master/README.md",
+        "issues": "https://github.com/venveo/craft3-mix/issues"
     },
     "license": "MIT",
     "authors": [
@@ -36,19 +36,19 @@
     ],
     "autoload": {
         "psr-4": {
-            "venveo\\elixir\\": "src/"
+            "venveo\\mix\\": "src/"
         }
     },
     "extra": {
-        "name": "Elixir",
-        "handle": "elixir",
+        "name": "Mix",
+        "handle": "mix",
         "schemaVersion": "2.0.0",
         "hasCpSettings": true,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/venveo/craft-elixir/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/venveo/craft3-mix/master/CHANGELOG.md",
         "components": {
-            "elixirService": "venveo\\elixir\\services\\ElixirService"
+            "mixService": "venveo\\mix\\services\\MixService"
         },
-        "class": "venveo\\elixir\\Elixir"
+        "class": "venveo\\mix\\Mix"
     }
 }

@@ -2,14 +2,14 @@
 
 {#
 /**
- * Elixir plugin for Craft CMS 3.x
+ * Mix plugin for Craft CMS 3.x
  *
- * Elixir Settings.twig
+ * Mix Settings.twig
  *
  * @author    Venveo
  * @copyright Copyright (c) 2017 Venveo
  * @link      https://venveo.com
- * @package   Elixir
+ * @package   Mix
  * @since     2.0.0
  */
 #}
@@ -34,7 +34,7 @@
     label:        "Path to Build Directory"|t,
     id:           'buildPath',
     name:         'buildPath',
-    instructions: "By default, Laravel compiles versioned assets to 'build'. Modify this only if you changed the elixir configuration",
+    instructions: "By default, Laravel compiles versioned assets to 'build'. Modify this only if you changed the mix configuration",
     value:        settings.buildPath,
     errors:       settings.getErrors('buildPath'),
     required:     true
@@ -47,20 +47,20 @@
 <p>Find a versioned CSS asset.</p>
 <code>
     <pre>
-{{ '<link rel="stylesheet" href="{{ craft.elixir.version(\'css/app.css\') }}">' | e }}
+{{ '<link rel="stylesheet" href="{{ craft.mix.version(\'css/app.css\') }}">' | e }}
     </pre>
 </code>
 
 <p>Find a JavaScript versioned asset.</p>
 <code>
     <pre>
-{{ '<script src="{{ craft.elixir.version(\'js/app.js\') }}"></script>' | e }}
+{{ '<script src="{{ craft.mix.version(\'js/app.js\') }}"></script>' | e }}
     </pre>
 </code>
 
 <p>Lazily find a versioned asset and build a default tag. This will output the correct tag based on the file extension.</p>
 <code>
     <pre>
-{{ '{{ craft.elixir.withTag(\'js/app.js\') | raw }}' | e }}
+{{ '{{ craft.mix.withTag(\'js/app.js\') | raw }}' | e }}
     </pre>
 </code>

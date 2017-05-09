@@ -1,60 +1,21 @@
-# Use Laravel Elixir with Craft CMS
+# Use Laravel Elixir (or any rev-manifest) with Craft CMS
 
-You can already use Laravel Elixir with Craft. It's rather straight forward. In fact, Matt Stauffer has an [excellent write up on using Elixir on his company blog](http://blog.tighten.co/setting-up-your-first-vuejs-site-using-laravel-elixir-and-vueify?utm_source=github.com/venveo/craft-elixir).
+You can already use Laravel Mix (Formerly Elixir) with Craft. It's rather straight forward. In fact, Matt Stauffer has an [excellent write up on using Elixir on his company blog](http://blog.tighten.co/setting-up-your-first-vuejs-site-using-laravel-elixir-and-vueify?utm_source=github.com/venveo/craft-elixir).
 
 However, when using a CDN such as [CloudFlare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/). You might want to take advantage of file versioning to bust the cache. This plugin lets you use Elixir's built in versioning in your Craft templates!
 
+### Don't use Mix?
+That's okay! The rev-manifest format is standard and this plugin is build-process agnostic. Just make sure your paths are configured properly.
 ## Requirements
-
-[npm](https://www.npmjs.com/)
-
+- Craft 3 (Tested on Beta 10)
+- Composer
 ## Installation and Setup
-
-If you haven't read the [Elixir documentation on the Laravel website](https://laravel.com/docs/master/elixir) or the blog post above, Here is a quick overview  on setting up Elixir.
-
-create a `package.json` with the following content:
-
-```
-{
-  "private": true,
-  "devDependencies": {
-    "gulp": "^3.9.1"
-  },
-  "dependencies": {
-    "laravel-elixir": "^5.0.0"
-  }
-}
-```
-
-run the npm install command:
-
-`npm install`
-
-add your SCSS, JavaScript and etc just like a Laravel project under `resources/assets/sass` and `resources/assets/js`.
-
-create a `gulpfile.js` with your contents or copy this one:
-
-```
-var elixir = require('laravel-elixir');
-
-elixir(function(mix) {
-    mix.sass('app.scss')
-        .version('css/app.css');
-});
-```
-
-Run `gulp watch`!
-
-When using the Elixir version function your CSS/JavaScript will output to `public/css/all-16d570a7.css`.  This is where this plugin comes in!
-
+Please follow the installation guide for Craft 3 plugins [here](https://github.com/craftcms/docs/blob/master/en/plugin-intro.md#loading-your-plugin-into-craft)
 ## Usage
-
-With Laravel there is an Elixir PHP helper function that retrieves the correct version. Now you can do this in Craft templates!
-
 Twig Function
 
 ```
-{{ elixir('css/all.css') }}
+{{ mix('css/all.css') }}
 ```
 
 > *Note:* you can optionally output the entire HTML tag by passing a second argument `true` to the function (e.g `{{ elixir('css/all.css', true) }}`. 
@@ -62,18 +23,18 @@ Twig Function
 Twig Filter
 
 ```
-{{ 'css/all.css' | elixir }}
+{{ 'css/all.css' | mix }}
 ```
 
-`<link rel="stylesheet" href="{{ craft.elixir.version('css/all.css') }}">`
+`<link rel="stylesheet" href="{{ craft.mix.version('css/all.css') }}">`
 
 and
 
-`<script src="{{ craft.elixir.version('js/app.js') }}"></script>`
+`<script src="{{ craft.mix.version('js/app.js') }}"></script>`
 
 If you are especially lazy, you can have the plugin automatically create the entire tag, based on the file extension.
 
-`{{ craft.elixir.withTag('js/app.js') | raw }}`
+`{{ craft.mix.withTag('js/app.js') | raw }}`
 
 This will output the `<script>` or `<link>` tags appropriately.
 

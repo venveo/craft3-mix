@@ -1,22 +1,22 @@
 <?php
 /**
- * Elixir plugin for Craft CMS 3.x
+ * Mix plugin for Craft CMS 3.x
  *
- * Helper plugin for Laravel Elixir in Craft templates
+ * Helper plugin for Laravel Mix in Craft templates
  *
  * @link      https://venveo.com
  * @copyright Copyright (c) 2017 Venveo
  */
 
-namespace venveo\elixir\models;
+namespace venveo\mix\models;
 
-use venveo\elixir\Elixir;
+use venveo\mix\Mix;
 
 use Craft;
 use craft\base\Model;
 
 /**
- * Elixir Settings Model
+ * Mix Settings Model
  *
  * This is a model used to define the plugin's settings.
  *
@@ -26,7 +26,7 @@ use craft\base\Model;
  * https://craftcms.com/docs/plugins/models
  *
  * @author    Venveo
- * @package   Elixir
+ * @package   Mix
  * @since     2.0.0
  */
 class Settings extends Model

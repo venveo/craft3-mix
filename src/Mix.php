@@ -1,19 +1,19 @@
 <?php
 /**
- * Elixir plugin for Craft CMS 3.x
+ * Mix plugin for Craft CMS 3.x
  *
- * Helper plugin for Laravel Elixir in Craft templates
+ * Helper plugin for Laravel Mix in Craft templates
  *
  * @link      https://venveo.com
  * @copyright Copyright (c) 2017 Venveo
  */
 
-namespace venveo\elixir;
+namespace venveo\mix;
 
-use venveo\elixir\services\ElixirService as ElixirServiceService;
-use venveo\elixir\variables\ElixirVariable;
-use venveo\elixir\twigextensions\ElixirTwigExtension;
-use venveo\elixir\models\Settings;
+use venveo\mix\services\MixService as MixServiceService;
+use venveo\mix\variables\MixVariable;
+use venveo\mix\twigextensions\MixTwigExtension;
+use venveo\mix\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -33,21 +33,21 @@ use yii\base\Event;
  * https://craftcms.com/docs/plugins/introduction
  *
  * @author    Venveo
- * @package   Elixir
+ * @package   Mix
  * @since     2.0.0
  *
- * @property  ElixirServiceService $elixirService
+ * @property  MixServiceService $mixService
  */
-class Elixir extends Plugin
+class Mix extends Plugin
 {
     // Static Properties
     // =========================================================================
 
     /**
      * Static property that is an instance of this plugin class so that it can be accessed via
-     * Elixir::$plugin
+     * Mix::$plugin
      *
-     * @var Elixir
+     * @var Mix
      */
     public static $plugin;
 
@@ -56,7 +56,7 @@ class Elixir extends Plugin
 
     /**
      * Set our $plugin static property to this class so that it can be accessed via
-     * Elixir::$plugin
+     * Mix::$plugin
      *
      * Called after the plugin class is instantiated; do any one-time initialization
      * here such as hooks and events.
@@ -71,7 +71,7 @@ class Elixir extends Plugin
         self::$plugin = $this;
 
         // Add in our Twig extensions
-        Craft::$app->view->twig->addExtension(new ElixirTwigExtension());
+        Craft::$app->view->twig->addExtension(new MixTwigExtension());
 
         // Do something after we're installed
         Event::on(
@@ -104,7 +104,7 @@ class Elixir extends Plugin
          */
         Craft::info(
             Craft::t(
-                'elixir',
+                'mix',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
@@ -121,7 +121,7 @@ class Elixir extends Plugin
      */
     public function defineTemplateComponent()
     {
-        return ElixirVariable::class;
+        return MixVariable::class;
     }
 
     // Protected Methods
@@ -146,7 +146,7 @@ class Elixir extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'elixir/settings',
+            'mix/settings',
             [
                 'settings' => $this->getSettings()
             ]

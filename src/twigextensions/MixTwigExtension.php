@@ -1,16 +1,16 @@
 <?php
 /**
- * Elixir plugin for Craft CMS 3.x
+ * Mix plugin for Craft CMS 3.x
  *
- * Helper plugin for Laravel Elixir in Craft templates
+ * Helper plugin for Laravel Mix in Craft templates
  *
  * @link      https://venveo.com
  * @copyright Copyright (c) 2017 Venveo
  */
 
-namespace venveo\elixir\twigextensions;
+namespace venveo\mix\twigextensions;
 
-use venveo\elixir\Elixir;
+use venveo\mix\Mix;
 
 use Craft;
 
@@ -22,10 +22,10 @@ use Craft;
  * http://twig.sensiolabs.org/doc/advanced.html
  *
  * @author    Venveo
- * @package   Elixir
+ * @package   Mix
  * @since     2.0.0
  */
-class ElixirTwigExtension extends \Twig_Extension
+class MixTwigExtension extends \Twig_Extension
 {
     // Public Methods
     // =========================================================================
@@ -37,34 +37,34 @@ class ElixirTwigExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'Elixir';
+        return 'Mix';
     }
 
     /**
      * Returns an array of Twig filters, used in Twig templates via:
      *
-     *      {{ 'file' | elixir }}
+     *      {{ 'file' | mix }}
      *
      * @return array
      */
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('elixir', [$this, 'elixir']),
+            new \Twig_SimpleFilter('mix', [$this, 'mix']),
         ];
     }
 
     /**
      * Returns an array of Twig functions, used in Twig templates via:
      *
-     *      {% set this = elixir(file, tag) %}
+     *      {% set this = mix(file, tag) %}
      *
      * @return array
      */
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('elixir', [$this, 'elixir']),
+            new \Twig_SimpleFunction('mix', [$this, 'mix']),
         ];
     }
 
@@ -75,11 +75,11 @@ class ElixirTwigExtension extends \Twig_Extension
     * @param bool $tag
     * @return mixed
     */
-    public function elixir($file, $tag = false)
+    public function mix($file, $tag = false)
     {
         if ($tag) {
-            Elixir::$plugin->elixirService->withTag($file);
+            Mix::$plugin->mixService->withTag($file);
         }
-        Elixir::$plugin->elixirService->version($file);
+        Mix::$plugin->mixService->version($file);
     }
 }

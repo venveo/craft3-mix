@@ -1,32 +1,32 @@
 <?php
 /**
- * Elixir plugin for Craft CMS 3.x
+ * Mix plugin for Craft CMS 3.x
  *
- * Helper plugin for Laravel Elixir in Craft templates
+ * Helper plugin for Laravel Mix in Craft templates
  *
  * @link      https://venveo.com
  * @copyright Copyright (c) 2017 Venveo
  */
 
-namespace venveo\elixir\variables;
+namespace venveo\mix\variables;
 
-use venveo\elixir\Elixir;
+use venveo\mix\Mix;
 
 use Craft;
 
 /**
- * Elixir Variable
+ * Mix Variable
  *
  * Craft allows plugins to provide their own template variables, accessible from
- * the {{ craft }} global variable (e.g. {{ craft.elixir }}).
+ * the {{ craft }} global variable (e.g. {{ craft.mix }}).
  *
  * https://craftcms.com/docs/plugins/variables
  *
  * @author    Venveo
- * @package   Elixir
+ * @package   Mix
  * @since     2.0.0
  */
-class ElixirVariable
+class MixVariable
 {
     // Public Methods
     // =========================================================================
@@ -35,7 +35,7 @@ class ElixirVariable
      */
     public function version(string $file)
     {
-        return Elixir::$plugin->elixirService->version($file);
+        return Mix::$plugin->mixService->version($file);
     }
 
     /**
@@ -43,6 +43,6 @@ class ElixirVariable
      */
     public function withTag(string $file)
     {
-        return Elixir::$plugin->elixirService->withTag($file);
+        return Mix::$plugin->mixService->withTag($file);
     }
 }
