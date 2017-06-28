@@ -71,7 +71,6 @@ class MixService extends Component
             $manifest = $this->readManifestFile();
         } catch (\Exception $e) {
             Craft::log(printf($e->getMessage()), LogLevel::Info, true);
-
             return $this->buildPath . '/' . $file;
         }
 

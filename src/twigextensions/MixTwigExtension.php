@@ -78,8 +78,8 @@ class MixTwigExtension extends \Twig_Extension
     public function mix($file, $tag = false)
     {
         if ($tag) {
-            Mix::$plugin->mixService->withTag($file);
+            return Mix::$plugin->mixService->withTag($file);
         }
-        Mix::$plugin->mixService->version($file);
+        return Mix::$plugin->mixService->version($file);
     }
 }
