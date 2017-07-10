@@ -108,7 +108,7 @@ class Mix extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'mix/settings',
+            'craft3-mix/settings',
             [
                 'settings' => $this->getSettings()
             ]
