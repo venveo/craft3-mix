@@ -2,7 +2,7 @@
     "name": "venveo/craft3-mix",
     "description": "Helper plugin for rev-manifest in Craft templates",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
@@ -17,8 +17,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Jason McCallister",
-            "email": "jason@venveo.com"
+            "name": "Venveo",
+            "email": "info@venveo.com"
         },
         {
             "name": "Ransom Roberson",
@@ -26,7 +26,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "~3.0.0-beta.1"
+        "craftcms/cms": "~3.0.0-beta.20"
     },
     "repositories": [
         {
@@ -41,7 +41,7 @@
     },
     "extra": {
         "name": "Mix",
-        "handle": "mix",
+        "handle": "craft3-mix",
         "schemaVersion": "1.0.0",
         "hasCpSettings": true,
         "hasCpSection": false,
