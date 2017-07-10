@@ -70,7 +70,6 @@ class MixService extends Component
         try {
             $manifest = $this->readManifestFile();
         } catch (\Exception $e) {
-            Craft::log(printf($e->getMessage()), LogLevel::Info, true);
             return $this->buildPath . '/' . $file;
         }
 
@@ -101,15 +100,6 @@ class MixService extends Component
         try {
             $manifest = $this->readManifestFile();
         } catch (\Exception $e) {
-            Craft::info(
-                Craft::t(
-                    'mix',
-                    $e->getMessage(),
-                    ['name' => $this->name]
-                ),
-                __METHOD__
-            );
-
             return $file;
         }
 
